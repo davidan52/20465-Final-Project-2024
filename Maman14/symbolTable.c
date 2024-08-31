@@ -6,7 +6,7 @@
 #include "global.h"
 
 /* Define the initial size of the symbol table */
-#define INITIAL_SIZE 100
+
 
 /* Symbol table array and its size */
 static Symbol *symbolTable = NULL;

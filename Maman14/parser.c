@@ -5,6 +5,7 @@
 #include <ctype.h>
 #include "parser.h"
 #include "utils.h"
+#include "global.h" /* Include global header */
 
 /* Check if the line is empty or a comment */
 int is_empty_or_comment(const char *line) {
@@ -71,5 +72,10 @@ void parse_instruction(char *line, char **instruction, char **operands) {
     /* Trim any extra whitespace from the instruction */
     if (*instruction) {
         trim_whitespace(*instruction);
+    }
+
+    /* Check if operands contain registers */
+    if (*operands && is_register(*operands)) {
+        printf("Register detected: %s\n", *operands); /* Debug or log register detection */
     }
 }

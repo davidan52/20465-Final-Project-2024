@@ -1,8 +1,8 @@
-/* utils.c */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include "global.h"
 #include "utils.h"
 
 /* Function to trim leading and trailing whitespace from a string */
@@ -38,4 +38,16 @@ void trim_newline(char *str) {
 void error_exit(const char *message) {
     fprintf(stderr, "Error: %s\n", message);
     exit(EXIT_FAILURE);
+}
+
+/* Function to check if a string is a valid register */
+int is_register(const char *operand) {
+    int i; /* Declare loop variable outside the for loop */
+
+    for (i = 0; i < REG_COUNT; i++) {
+        if (strcmp(operand, REGISTERS[i]) == 0) {
+            return 1; /* Valid register found */
+        }
+    }
+    return 0; /* Not a valid register */
 }
