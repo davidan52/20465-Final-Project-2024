@@ -1,0 +1,10 @@
+; Sample Assembly Code
+START:  mov r1, r2
+        cmp #5, r3
+        add r2, r3
+LOOP:   sub r3, r4
+        jmp START
+        .data 5, -3, 10
+        .string "hello"
+        .extern EXT_LABEL
+END:    stop
